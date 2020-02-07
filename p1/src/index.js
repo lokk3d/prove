@@ -1,3 +1,4 @@
+import "./main.css"
 import {log, errorLog, warningLog, setDebugOutput, DEBUG_OUTPUT_OPTIONS} from "./logger.js"
 
 setDebugOutput(DEBUG_OUTPUT_OPTIONS.screen)
