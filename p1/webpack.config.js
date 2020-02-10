@@ -1,6 +1,7 @@
 const path = require("path")
 const webpack = require("webpack")
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 
 module.exports = {
@@ -21,23 +22,21 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, "src", "public", "index.html"),
             filename: "./index.html"
-        })
+        }),
+        new CleanWebpackPlugin()
     ],
     module: {
         rules: [
             {
                 test: /\.css$/,
-                use: ["style-laoder", //Inserisce lo stile nel dom
+                use: ["style-loader", //Inserisce lo stile nel dom
                     "css-loader"] //converte il css in commonjs
             }
         ]
     },
 
     resolve: {
-        extensions: ['.js', '.jsx', '.css'],
-        modules: [
-            'node_modules'
-          ]        
+        extensions: ['.js', '.jsx', '.css']      
     }
 }
 
